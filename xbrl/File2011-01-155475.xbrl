@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xbrl xsi:schemaLocation="http://xbrl.iasb.org/int/fr/ifrs/gp/2006-08-15 http://xbrl.iasb.org/int/fr/ifrs/gp/2006-08-15/ifrs-gp-2006-08-15.xsd           http://xbrl.isa.gov.il/il/fr/ifrs/gp/2007-09-01 http://www.xbrl.org/il/ifrs/gp/2007-09-01/il-ifrs-gp-2007-09-01.xsd           http://www.xbrl.org/2003/instance http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd           http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd" xmlns="http://www.xbrl.org/2003/instance" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iso4217="http://www.xbrl.org/2003/iso4217" xmlns:ifrs-gp="http://xbrl.iasb.org/int/fr/ifrs/gp/2006-08-15" xmlns:il-ifrs-gp="http://xbrl.isa.gov.il/il/fr/ifrs/gp/2007-09-01">
+  <link:schemaRef xlink:href="http://www.xbrl.org/il/ifrs/gp/2007-09-01/il-ifrs-gp-2007-09-01.xsd" xlink:type="simple" />
+  <context id="Current_AsOf">
+    <entity>
+      <identifier scheme="http://www.isa.gov.il">520027830</identifier>
+    </entity>
+    <period>
+      <instant>2011-03-31</instant>
+    </period>
+  </context>
+  <context id="Current_ForPeriod">
+    <entity>
+      <identifier scheme="http://www.isa.gov.il">520027830</identifier>
+    </entity>
+    <period>
+      <startDate>2011-01-01</startDate>
+      <endDate>2011-03-31</endDate>
+    </period>
+  </context>
+  <context id="AsOf_FilingDate">
+    <entity>
+      <identifier scheme="http://www.isa.gov.il">520027830</identifier>
+    </entity>
+    <period>
+      <instant>2011-05-19</instant>
+    </period>
+  </context>
+  <context id="AsOf_PR_SignDate">
+    <entity>
+      <identifier scheme="http://www.isa.gov.il">520027830</identifier>
+    </entity>
+    <period>
+      <instant>2011-05-19</instant>
+    </period>
+  </context>
+  <context id="AsOf_FR_SignDate">
+    <entity>
+      <identifier scheme="http://www.isa.gov.il">520027830</identifier>
+    </entity>
+    <period>
+      <instant>2011-05-15</instant>
+    </period>
+  </context>
+  <context id="AsOf_MR_SignDate">
+    <entity>
+      <identifier scheme="http://www.isa.gov.il">520027830</identifier>
+    </entity>
+    <period>
+      <instant>2011-05-15</instant>
+    </period>
+  </context>
+  <context id="AsOf_Auditor_SignDate">
+    <entity>
+      <identifier scheme="http://www.isa.gov.il">520027830</identifier>
+    </entity>
+    <period>
+      <instant>2011-05-15</instant>
+    </period>
+  </context>
+  <unit id="U-Monetary">
+    <measure>iso4217:USD</measure>
+  </unit>
+  <unit id="U-Shares">
+    <measure>shares</measure>
+  </unit>
+  <unit id="U-PerShare">
+    <divide>
+      <unitNumerator>
+        <measure>iso4217:USD</measure>
+      </unitNumerator>
+      <unitDenominator>
+        <measure>shares</measure>
+      </unitDenominator>
+    </divide>
+  </unit>
+  <ifrs-gp:PropertyPlantAndEquipmentNet contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">2281194000000</ifrs-gp:PropertyPlantAndEquipmentNet>
+  <ifrs-gp:InvestmentProperty contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:IntangibleAssetsNet contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">698829000000</ifrs-gp:IntangibleAssetsNet>
+  <ifrs-gp:BiologicalAssetsNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:InvestmentsInSubsidiariesAtCost contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:InvestmentsInAssociatesAtCost contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:InvestmentsInJointVenturesAtCost contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:EquityMethodAccountedInvestmentsTotal contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">28055000000</ifrs-gp:EquityMethodAccountedInvestmentsTotal>
+  <ifrs-gp:EquityMethodAccountedInvestmentsInAssociates contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">28055000000</ifrs-gp:EquityMethodAccountedInvestmentsInAssociates>
+  <ifrs-gp:OtherEquityMethodAccountedInvestments contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:DeferredTaxAssets contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">109971000000</ifrs-gp:DeferredTaxAssets>
+  <ifrs-gp:AssetsPledgedAsCollateralSubjectToSaleOrRepledgingNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:OtherFinancialAssetsNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">223370000000</ifrs-gp:OtherFinancialAssetsNonCurrent>
+  <ifrs-gp:HedgingAssetsNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">36212000000</ifrs-gp:HedgingAssetsNonCurrent>
+  <ifrs-gp:TradeAndOtherReceivablesNetNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:PrepaymentsNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:CashRestrictedOrPledged contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:OtherAssetsNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">140471000000</ifrs-gp:OtherAssetsNonCurrent>
+  <ifrs-gp:AssetsNonCurrentTotal contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">3518102000000</ifrs-gp:AssetsNonCurrentTotal>
+  <ifrs-gp:NonCurrentAssetsAndDisposalGroupsHeldForSale contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:Inventories contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">1171543000000</ifrs-gp:Inventories>
+  <ifrs-gp:BiologicalAssetsCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:AssetsPledgedAsCollateralSubjectToSaleOrRepledgingCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:OtherFinancialAssetsCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">202076000000</ifrs-gp:OtherFinancialAssetsCurrent>
+  <ifrs-gp:HedgingAssetsCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:CurrentTaxReceivables contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">26438000000</ifrs-gp:CurrentTaxReceivables>
+  <ifrs-gp:TradeAndOtherReceivablesNetCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">1367043000000</ifrs-gp:TradeAndOtherReceivablesNetCurrent>
+  <ifrs-gp:PrepaymentsCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:CashAndCashEquivalents contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">437274000000</ifrs-gp:CashAndCashEquivalents>
+  <ifrs-gp:OtherAssetsCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:AssetsCurrentTotal contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">3204374000000</ifrs-gp:AssetsCurrentTotal>
+  <ifrs-gp:AssetsTotal contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">6722476000000</ifrs-gp:AssetsTotal>
+  <ifrs-gp:IssuedCapital contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">542055000000</ifrs-gp:IssuedCapital>
+  <ifrs-gp:OtherReserves contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">171910000000</ifrs-gp:OtherReserves>
+  <ifrs-gp:TreasuryShares contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">260113000000</ifrs-gp:TreasuryShares>
+  <ifrs-gp:RetainedEarningsAccumulatedLosses contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">2334331000000</ifrs-gp:RetainedEarningsAccumulatedLosses>
+  <ifrs-gp:EquityAttributableToEquityHoldersOfParent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">2788183000000</ifrs-gp:EquityAttributableToEquityHoldersOfParent>
+  <ifrs-gp:SubscribedCapital contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:MinorityInterest contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">21083000000</ifrs-gp:MinorityInterest>
+  <ifrs-gp:EquityTotal contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">2809266000000</ifrs-gp:EquityTotal>
+  <ifrs-gp:InterestBearingBorrowingsNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">1526712000000</ifrs-gp:InterestBearingBorrowingsNonCurrent>
+  <ifrs-gp:NonInterestBearingBorrowingsNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:DeferredIncomeNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:ProvisionsNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">70245000000</ifrs-gp:ProvisionsNonCurrent>
+  <ifrs-gp:PostEmploymentBenefitObligationNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">590477000000</ifrs-gp:PostEmploymentBenefitObligationNonCurrent>
+  <ifrs-gp:OtherFinancialLiabilitiesNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:HedgingLiabilitiesNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">23433000000</ifrs-gp:HedgingLiabilitiesNonCurrent>
+  <ifrs-gp:DeferredTaxLiabilities contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">106079000000</ifrs-gp:DeferredTaxLiabilities>
+  <ifrs-gp:TradeAndOtherPayablesNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:OtherLiabilitiesNonCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:LiabilitiesNonCurrentTotal contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">2316946000000</ifrs-gp:LiabilitiesNonCurrentTotal>
+  <ifrs-gp:LiabilitiesIncludedInDisposalGroupsClassifiedAsHeldForSale contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:InterestBearingBorrowingsCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">183077000000</ifrs-gp:InterestBearingBorrowingsCurrent>
+  <ifrs-gp:NonInterestBearingBorrowingsCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:DeferredIncomeCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:ProvisionsCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">57809000000</ifrs-gp:ProvisionsCurrent>
+  <ifrs-gp:PostEmploymentBenefitObligationCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:OtherFinancialLiabilitiesCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:HedgingLiabilitiesCurrent contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:CurrentTaxPayables contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">46375000000</ifrs-gp:CurrentTaxPayables>
+  <ifrs-gp:TradeAndOtherPayablesCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">1139300000000</ifrs-gp:TradeAndOtherPayablesCurrent>
+  <ifrs-gp:AccruedLiabilitiesTotal contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:OtherLiabilitiesCurrent contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">169703000000</ifrs-gp:OtherLiabilitiesCurrent>
+  <ifrs-gp:LiabilitiesCurrentTotal contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">1596264000000</ifrs-gp:LiabilitiesCurrentTotal>
+  <ifrs-gp:LiabilitiesTotal contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">3913210000000</ifrs-gp:LiabilitiesTotal>
+  <ifrs-gp:EquityAndLiabilitiesTotal contextRef="Current_AsOf" unitRef="U-Monetary" decimals="-6">6722476000000</ifrs-gp:EquityAndLiabilitiesTotal>
+  <ifrs-gp:RevenueTotal contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">1528296000000</ifrs-gp:RevenueTotal>
+  <ifrs-gp:CostOfSales contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">890195000000</ifrs-gp:CostOfSales>
+  <ifrs-gp:GrossProfit contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">638101000000</ifrs-gp:GrossProfit>
+  <ifrs-gp:InterestIncome contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:DividendIncome contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:GainOnForeignCurrencyExchangeFromBorrowingsRelatingToInterestCosts contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:GainOnRedemptionAndExtinguishmentOfDebt contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:MiscellaneousOtherOperatingIncome contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">850000000</ifrs-gp:MiscellaneousOtherOperatingIncome>
+  <ifrs-gp:OtherOperatingIncomeTotal contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">850000000</ifrs-gp:OtherOperatingIncomeTotal>
+  <ifrs-gp:MarketingAndDistributionCosts contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">192994000000</ifrs-gp:MarketingAndDistributionCosts>
+  <ifrs-gp:MarketingCosts contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">57355000000</ifrs-gp:MarketingCosts>
+  <ifrs-gp:DistributionCosts contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">135639000000</ifrs-gp:DistributionCosts>
+  <ifrs-gp:ResearchAndDevelopment contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">16569000000</ifrs-gp:ResearchAndDevelopment>
+  <ifrs-gp:AdministrativeExpenses contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">61298000000</ifrs-gp:AdministrativeExpenses>
+  <ifrs-gp:RestructuringCosts contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:MiscellaneousOtherOperatingExpenses contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">7593000000</ifrs-gp:MiscellaneousOtherOperatingExpenses>
+  <ifrs-gp:OperatingExpensesTotal contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">278454000000</ifrs-gp:OperatingExpensesTotal>
+  <ifrs-gp:ProfitLossFromOperations contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">360497000000</ifrs-gp:ProfitLossFromOperations>
+  <ifrs-gp:GainLossOnFinancialInstrumentsDesignatedAsCashFlowHedges contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:GainLossOnDerecognitionOfAvailableForSaleFinancialAssets contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:GainLossOnDerecognitionOfNonCurrentAssetsNotHeldForSaleTotal contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:FinanceCostsForNonFinancialActivities contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">23012000000</ifrs-gp:FinanceCostsForNonFinancialActivities>
+  <ifrs-gp:IncomeLossFromInvestments contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:NegativeGoodwillImmediatelyRecognised contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:ShareOfProfitLossFromEquityAccountedInvestments contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">4307000000</ifrs-gp:ShareOfProfitLossFromEquityAccountedInvestments>
+  <ifrs-gp:ShareOfProfitLossFromEquityAccountedAssociates contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">4307000000</ifrs-gp:ShareOfProfitLossFromEquityAccountedAssociates>
+  <ifrs-gp:ShareOfProfitLossFromEquityAccountedJointVentures contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:OtherNonOperatingIncome contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:OtherNonOperatingExpenses contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:ProfitLossBeforeTax contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">341792000000</ifrs-gp:ProfitLossBeforeTax>
+  <ifrs-gp:IncomeTaxExpenseIncome contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">61156000000</ifrs-gp:IncomeTaxExpenseIncome>
+  <ifrs-gp:ProfitLossAfterTaxFromContinuingOperations contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">280636000000</ifrs-gp:ProfitLossAfterTaxFromContinuingOperations>
+  <ifrs-gp:ProfitLossFromDiscontinuedOperationsNetOfTax contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:ProfitLoss contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">280636000000</ifrs-gp:ProfitLoss>
+  <ifrs-gp:ProfitLossAttributableToEquityHoldersOfParent contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">279735000000</ifrs-gp:ProfitLossAttributableToEquityHoldersOfParent>
+  <ifrs-gp:ProfitLossAttributableToMinorityInterest contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">901000000</ifrs-gp:ProfitLossAttributableToMinorityInterest>
+  <ifrs-gp:BasicEarningsLossPerShare contextRef="Current_ForPeriod" unitRef="U-PerShare" decimals="INF">0.221</ifrs-gp:BasicEarningsLossPerShare>
+  <ifrs-gp:BasicEarningsLossPerShareFromDiscontinuedOperations contextRef="Current_ForPeriod" unitRef="U-PerShare" xsi:nil="true" />
+  <ifrs-gp:BasicEarningsLossPerShareFromContinuingOperations contextRef="Current_ForPeriod" unitRef="U-PerShare" decimals="INF">0.221</ifrs-gp:BasicEarningsLossPerShareFromContinuingOperations>
+  <ifrs-gp:DilutedEarningsLossPerShare contextRef="Current_ForPeriod" unitRef="U-PerShare" decimals="INF">0.219</ifrs-gp:DilutedEarningsLossPerShare>
+  <ifrs-gp:DilutedEarningsLossPerShareFromDiscontinuedOperations contextRef="Current_ForPeriod" unitRef="U-PerShare" xsi:nil="true" />
+  <ifrs-gp:DilutedEarningsLossPerShareFromContinuingOperations contextRef="Current_ForPeriod" unitRef="U-PerShare" decimals="INF">0.219</ifrs-gp:DilutedEarningsLossPerShareFromContinuingOperations>
+  <ifrs-gp:NetCashFlowsFromUsedInOperatingActivities contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">141981000000</ifrs-gp:NetCashFlowsFromUsedInOperatingActivities>
+  <ifrs-gp:NetCashFlowsFromUsedInInvestingActivities contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">-59884000000</ifrs-gp:NetCashFlowsFromUsedInInvestingActivities>
+  <ifrs-gp:NetCashFlowsFromUsedInFinancingActivities contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">-45579000000</ifrs-gp:NetCashFlowsFromUsedInFinancingActivities>
+  <ifrs-gp:EffectOfExchangeRateChangesOnCashAndCashEquivalents contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">-158000000</ifrs-gp:EffectOfExchangeRateChangesOnCashAndCashEquivalents>
+  <ifrs-gp:AccumulatedDepreciationAndImpairmentPropertyPlantAndEquipmentTotal contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:AdditionsPropertyPlantAndEquipmentNet contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:AggregateAmountOfImpairmentLossesRecognisedReversed contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  <ifrs-gp:NumberOfSharesIssuedAndFullyPaidForClassOfOrdinaryShareCapital contextRef="Current_AsOf" unitRef="U-Shares" xsi:nil="true" />
+  <ifrs-gp:AmountOfDividendOrdinarySharesGross contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">169703000000</ifrs-gp:AmountOfDividendOrdinarySharesGross>
+  <ifrs-gp:AmountOfDividendProposedOrDeclaredButNotPaidOrdinaryShares contextRef="Current_ForPeriod" unitRef="U-Monetary" decimals="-6">364373000000</ifrs-gp:AmountOfDividendProposedOrDeclaredButNotPaidOrdinaryShares>
+  <il-ifrs-gp:InformationFromExplanatoryDisclosuresOnSegment>
+    <ifrs-gp:NameOfBusinessSegment contextRef="Current_ForPeriod" xsi:nil="true" />
+    <ifrs-gp:NameOfGeographicSegment contextRef="Current_ForPeriod" xsi:nil="true" />
+    <ifrs-gp:RevenueForPrimarySegmentTotal contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+    <ifrs-gp:ResultForPrimarySegment contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+    <ifrs-gp:AssetsForPrimarySegment contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+    <ifrs-gp:LiabilitiesForPrimarySegment contextRef="Current_AsOf" unitRef="U-Monetary" xsi:nil="true" />
+    <ifrs-gp:AccrualBasedCapitalAdditionsForPrimarySegment contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+    <ifrs-gp:DepreciationAndAmortisationForPrimarySegment contextRef="Current_ForPeriod" unitRef="U-Monetary" xsi:nil="true" />
+  </il-ifrs-gp:InformationFromExplanatoryDisclosuresOnSegment>
+  <il-ifrs-gp:FormShortName contextRef="Current_ForPeriod">ת930</il-ifrs-gp:FormShortName>
+  <il-ifrs-gp:ReportSubjectMatter contextRef="Current_ForPeriod">דוח תקופתי / רבעוני </il-ifrs-gp:ReportSubjectMatter>
+  <il-ifrs-gp:ReportReferenceNumber contextRef="Current_ForPeriod">2011-01-155475</il-ifrs-gp:ReportReferenceNumber>
+  <il-ifrs-gp:ReportReceiptTime contextRef="Current_ForPeriod">2011-05-19T18:42:00+02:00</il-ifrs-gp:ReportReceiptTime>
+  <il-ifrs-gp:ReportDistributionTime contextRef="Current_ForPeriod">2011-05-19T18:46:00+02:00</il-ifrs-gp:ReportDistributionTime>
+  <il-ifrs-gp:ReportFiledWithIsraelSecuritiesAuthority contextRef="Current_ForPeriod">true</il-ifrs-gp:ReportFiledWithIsraelSecuritiesAuthority>
+  <il-ifrs-gp:ReportFiledWithTelAvivStockExchange contextRef="Current_ForPeriod">true</il-ifrs-gp:ReportFiledWithTelAvivStockExchange>
+  <il-ifrs-gp:FreeText contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:RelatedReport1ReferenceNumber contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:RelatedReport2ReferenceNumber contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:RelatedReport3ReferenceNumber contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:EnglishNameOfReportingEntity contextRef="AsOf_FilingDate">ICL-ISRAEL CHEMICALS LTD.</il-ifrs-gp:EnglishNameOfReportingEntity>
+  <il-ifrs-gp:HebrewNameOfReportingEntity contextRef="AsOf_FilingDate">כימיקלים לישראל בע"מ</il-ifrs-gp:HebrewNameOfReportingEntity>
+  <il-ifrs-gp:CorporateRegistrationNumberOfReportingEntity contextRef="Current_ForPeriod">520027830</il-ifrs-gp:CorporateRegistrationNumberOfReportingEntity>
+  <il-ifrs-gp:ReportingEntitySecuritiesTradedOnTelAvivStockExchange contextRef="AsOf_FilingDate">true</il-ifrs-gp:ReportingEntitySecuritiesTradedOnTelAvivStockExchange>
+  <il-ifrs-gp:ShortNameAtTelAvivStockExchangeOfReportingEntity contextRef="AsOf_FilingDate">כיל</il-ifrs-gp:ShortNameAtTelAvivStockExchangeOfReportingEntity>
+  <il-ifrs-gp:MainTelephoneNumberOfReportingEntity contextRef="AsOf_FilingDate">03-6844400</il-ifrs-gp:MainTelephoneNumberOfReportingEntity>
+  <il-ifrs-gp:AdditionalTelephoneNumberOfReportingEntity contextRef="AsOf_FilingDate">03-6844412</il-ifrs-gp:AdditionalTelephoneNumberOfReportingEntity>
+  <il-ifrs-gp:MainFaxNumberOfReportingEntity contextRef="AsOf_FilingDate">03-6844435</il-ifrs-gp:MainFaxNumberOfReportingEntity>
+  <il-ifrs-gp:StreetNameOfReportingEntity contextRef="AsOf_FilingDate">ארניא</il-ifrs-gp:StreetNameOfReportingEntity>
+  <il-ifrs-gp:StreetNumberOfReportingEntity contextRef="AsOf_FilingDate">23, מגדל המילניום</il-ifrs-gp:StreetNumberOfReportingEntity>
+  <il-ifrs-gp:CityOfReportingEntity contextRef="AsOf_FilingDate">תל אביב</il-ifrs-gp:CityOfReportingEntity>
+  <il-ifrs-gp:ZipCodeOfReportingEntity contextRef="AsOf_FilingDate">61070</il-ifrs-gp:ZipCodeOfReportingEntity>
+  <il-ifrs-gp:EmailAddressOfReportingEntity contextRef="AsOf_FilingDate">lisah@icl-group.com</il-ifrs-gp:EmailAddressOfReportingEntity>
+  <il-ifrs-gp:WebsiteOfReportingEntity contextRef="AsOf_FilingDate" xsi:nil="true" />
+  <il-ifrs-gp:PreviousHebrewNamesOfReportingEntity contextRef="AsOf_FilingDate" xsi:nil="true" />
+  <il-ifrs-gp:DateSupplementaryReportSent contextRef="Current_ForPeriod">2011-05-16</il-ifrs-gp:DateSupplementaryReportSent>
+  <il-ifrs-gp:SupplementaryReportReferenceNumber contextRef="Current_ForPeriod">2011-01-149478</il-ifrs-gp:SupplementaryReportReferenceNumber>
+  <il-ifrs-gp:SupplementaryReportMainInformation contextRef="Current_ForPeriod">בשל טעות אנוש, נשמטה פסקה 9.11 בדוח הדירקטוריון  ליום 31 במרס 2011</il-ifrs-gp:SupplementaryReportMainInformation>
+  <il-ifrs-gp:DateAmendedReportSent contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:AmendedReportReferenceNumber contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:IncorrectItemsInOriginalReport contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:CauseOfError contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:MainAmendmentsToOriginalReport contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:NatureOfRestatement contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:OriginalReportReferenceNumber contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:RestatementBeginningOnDate contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:RestatementEndingOnDate contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:RestatementForYears contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:RestatementForDays contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:NameOfElectronicSignatory contextRef="AsOf_FilingDate">חימוביץ לייזה</il-ifrs-gp:NameOfElectronicSignatory>
+  <il-ifrs-gp:PositionOfElectronicSignatoryInReportingEntity contextRef="AsOf_FilingDate">יועץ משפטי ומזכיר החברה</il-ifrs-gp:PositionOfElectronicSignatoryInReportingEntity>
+  <il-ifrs-gp:TelephoneNumberOfElectronicSignatory contextRef="AsOf_FilingDate">03-6844412</il-ifrs-gp:TelephoneNumberOfElectronicSignatory>
+  <il-ifrs-gp:FaxNumberOfElectronicSignatory contextRef="AsOf_FilingDate">03-6844427</il-ifrs-gp:FaxNumberOfElectronicSignatory>
+  <il-ifrs-gp:EmailAddressOfElectronicSignatory contextRef="AsOf_FilingDate">lisah@icl-group.com</il-ifrs-gp:EmailAddressOfElectronicSignatory>
+  <il-ifrs-gp:CompanyOfElectronicSignatoryIfDifferentFromReportingEntity contextRef="AsOf_FilingDate">-</il-ifrs-gp:CompanyOfElectronicSignatoryIfDifferentFromReportingEntity>
+  <il-ifrs-gp:StreetNameOfElectronicSignatory contextRef="AsOf_FilingDate">ארניא</il-ifrs-gp:StreetNameOfElectronicSignatory>
+  <il-ifrs-gp:StreetNumberOfElectronicSignatory contextRef="AsOf_FilingDate">23</il-ifrs-gp:StreetNumberOfElectronicSignatory>
+  <il-ifrs-gp:CityOfElectronicSignatory contextRef="AsOf_FilingDate">תל אביב</il-ifrs-gp:CityOfElectronicSignatory>
+  <il-ifrs-gp:ZipCodeOfElectronicSignatory contextRef="AsOf_FilingDate">61070</il-ifrs-gp:ZipCodeOfElectronicSignatory>
+  <il-ifrs-gp:PeriodicReportForYear contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:PeriodicReportSignatureDate contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:ShareholdersMeetingDateIfConvenedToPresentFinancialStatements contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:PeriodicReportSignatoryInformation>
+    <il-ifrs-gp:NameOfPeriodicReportSignatory contextRef="AsOf_PR_SignDate" xsi:nil="true" />
+    <il-ifrs-gp:PositionOfPeriodicReportSignatory contextRef="AsOf_PR_SignDate" xsi:nil="true" />
+  </il-ifrs-gp:PeriodicReportSignatoryInformation>
+  <il-ifrs-gp:PeriodicFinancialStatementsForYear contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:InterimFinancialStatementsForPeriod contextRef="Current_ForPeriod">2011-01-01 - 2011-03-31</il-ifrs-gp:InterimFinancialStatementsForPeriod>
+  <il-ifrs-gp:InterimFinancialStatementsForPeriodEndingOn contextRef="Current_ForPeriod">2011-03-31</il-ifrs-gp:InterimFinancialStatementsForPeriodEndingOn>
+  <il-ifrs-gp:FinancialStatementsSigningDate contextRef="Current_ForPeriod">2011-05-15</il-ifrs-gp:FinancialStatementsSigningDate>
+  <il-ifrs-gp:AttachedAuditorOpinionOrAuditorReview contextRef="Current_ForPeriod">דוח סקירת רואה החשבון המבקר</il-ifrs-gp:AttachedAuditorOpinionOrAuditorReview>
+  <il-ifrs-gp:ReviewOrOpinionSigningDateByAuditor contextRef="Current_ForPeriod">2011-05-15</il-ifrs-gp:ReviewOrOpinionSigningDateByAuditor>
+  <il-ifrs-gp:NameOfAuditingFirm contextRef="AsOf_Auditor_SignDate">סומך חייקין, רואי חשבון</il-ifrs-gp:NameOfAuditingFirm>
+  <il-ifrs-gp:UnqualifiedOpinion contextRef="Current_ForPeriod" xsi:nil="true" />
+  <il-ifrs-gp:UnqualifiedReview contextRef="Current_ForPeriod">true</il-ifrs-gp:UnqualifiedReview>
+  <il-ifrs-gp:DateOfAuthorizationOfFinancialStatements contextRef="Current_ForPeriod">2011-05-15</il-ifrs-gp:DateOfAuthorizationOfFinancialStatements>
+  <il-ifrs-gp:FinancialStatementsSignatoryInformation>
+    <il-ifrs-gp:NameOfFinancialStatementsSignatory contextRef="AsOf_FR_SignDate">ניר גלעד</il-ifrs-gp:NameOfFinancialStatementsSignatory>
+    <il-ifrs-gp:PositionOfFinancialStatementsSignatory contextRef="AsOf_FR_SignDate">יו"ר דירקטוריון</il-ifrs-gp:PositionOfFinancialStatementsSignatory>
+  </il-ifrs-gp:FinancialStatementsSignatoryInformation>
+  <il-ifrs-gp:FinancialStatementsSignatoryInformation>
+    <il-ifrs-gp:NameOfFinancialStatementsSignatory contextRef="AsOf_FR_SignDate">עקיבא מוזס</il-ifrs-gp:NameOfFinancialStatementsSignatory>
+    <il-ifrs-gp:PositionOfFinancialStatementsSignatory contextRef="AsOf_FR_SignDate">מנכ"ל</il-ifrs-gp:PositionOfFinancialStatementsSignatory>
+  </il-ifrs-gp:FinancialStatementsSignatoryInformation>
+  <il-ifrs-gp:FinancialStatementsSignatoryInformation>
+    <il-ifrs-gp:NameOfFinancialStatementsSignatory contextRef="AsOf_FR_SignDate">אבי דויטשמן    </il-ifrs-gp:NameOfFinancialStatementsSignatory>
+    <il-ifrs-gp:PositionOfFinancialStatementsSignatory contextRef="AsOf_FR_SignDate">CFO</il-ifrs-gp:PositionOfFinancialStatementsSignatory>
+  </il-ifrs-gp:FinancialStatementsSignatoryInformation>
+  <il-ifrs-gp:InformationOnSignificantAssociatedCompaniesWhoseFinancialStatementsareAttached>
+    <il-ifrs-gp:NameOfSignificantAssociatedCompany contextRef="AsOf_FilingDate" xsi:nil="true" />
+  </il-ifrs-gp:InformationOnSignificantAssociatedCompaniesWhoseFinancialStatementsareAttached>
+  <il-ifrs-gp:InformationOnGuaranteedCompaniesWhoseFinancialStatementsAreAttached>
+    <il-ifrs-gp:NameOfGuaranteedCompany contextRef="AsOf_FilingDate" xsi:nil="true" />
+  </il-ifrs-gp:InformationOnGuaranteedCompaniesWhoseFinancialStatementsAreAttached>
+  <il-ifrs-gp:ManagementReportSignatureDate contextRef="Current_ForPeriod">2011-05-15</il-ifrs-gp:ManagementReportSignatureDate>
+  <il-ifrs-gp:ManagementReportSignatoryInformation>
+    <il-ifrs-gp:NameOfManagementReportSignatory contextRef="AsOf_MR_SignDate">עקיבא מוזס</il-ifrs-gp:NameOfManagementReportSignatory>
+    <il-ifrs-gp:PositionOfManagementReportSignatory contextRef="AsOf_MR_SignDate">מנכ"ל</il-ifrs-gp:PositionOfManagementReportSignatory>
+  </il-ifrs-gp:ManagementReportSignatoryInformation>
+  <il-ifrs-gp:ManagementReportSignatoryInformation>
+    <il-ifrs-gp:NameOfManagementReportSignatory contextRef="AsOf_MR_SignDate">אבי דויטשמן    </il-ifrs-gp:NameOfManagementReportSignatory>
+    <il-ifrs-gp:PositionOfManagementReportSignatory contextRef="AsOf_MR_SignDate">CFO</il-ifrs-gp:PositionOfManagementReportSignatory>
+  </il-ifrs-gp:ManagementReportSignatoryInformation>
+</xbrl>
