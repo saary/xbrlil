@@ -48,14 +48,12 @@ class XML2JSON(webapp.RequestHandler):
             #source = "http://www.w3schools.com/XML/note.xml"
             #source = "http://localhost:8080/xbrl/File2011-01-155475.xbrl"
             # [Eran] TODO - avoid recursion
-            try:
-                result = urlfetch.fetch(url=source, deadline=10)
-            except (ValueError, IOError, OSError,urlfetch.Error) as e:
-                self.response.out.write("exception: " + repr(e) + "\n")
-                self.response.out.write("Bad url: " + source + "\nUsing hardcoded string instead\n")
+            result = urlfetch.fetch(url=source, deadline=10)
             if (result.status_code == 200):
                 self.response.out.write("Parsing XML from url: " + source + "\n")
                 xml = result.content
+            else:
+                self.response.out.write("Bad url: " + source + "\nUsing hardcoded string instead\n")
         else:
             self.response.out.write("Parsing some hard-coded string\n")
 
