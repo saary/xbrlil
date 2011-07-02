@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ISBNdb server_time="2005-02-25T23:03:41">
+ <BookList total_results="1" page_size="10" page_number="1" shown_results="1">
+  <BookData book_id="somebook" isbn="0123456789">
+   <Title>Interesting Book</Title>
+   <TitleLong>Interesting Book: Read it or else..</TitleLong>
+   <AuthorsText>John Doe</AuthorsText>
+   <PublisherText>Acme Publishing</PublisherText>
+  </BookData>
+ </BookList>
+</ISBNdb>
