@@ -80,20 +80,30 @@ class XML2JSON(webapp.RequestHandler):
         return jsonObj
             
     def _convertToJsonHelper(self, elem, jsonObj):        
+        def normalize(name):
+            if name[0] == "{":
+                uri, tag = name[1:].split("}")
+                return tag
+            else:
+                return name
+        
         if len(elem.attrib) > 0 or len(elem) > 0:
             # skip nil elements
-            if ("nil" in elem.attrib and elem.attrib["nil"]) or len(elem) == 0:
+            if ("{http://www.w3.org/2001/XMLSchema-instance}nil" in elem.attrib and elem.attrib["{http://www.w3.org/2001/XMLSchema-instance}nil"] == "true"):
                 return
             
-            currentObj = jsonObj[elem.tag] = {}
+            currentObj = jsonObj[normalize(elem.tag)] = {}
             
             for key,value in elem.attrib.items():
-                currentObj[key] = value
+                currentObj[normalize(key)] = value
+            
+            if not elem.text is None:
+                currentObj["value"] = elem.text
                 
             for subelem in elem:
                 self._convertToJsonHelper(subelem, currentObj)
         else:
-            jsonObj[elem.tag] = elem.text
+            jsonObj[normalize(elem.tag)] = elem.text
         
 def main():
     application = webapp.WSGIApplication([
