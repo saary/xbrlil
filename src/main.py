@@ -16,17 +16,14 @@
 #
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
+from google.appengine.api import urlfetch                      
 
+from django.utils import simplejson     
+from xml.etree import ElementTree as ET
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
         self.response.out.write('Hello world!')
-
-from google.appengine.api import urlfetch                      
-
-from xml.etree import ElementTree as etree
-from xml.etree.ElementTree import parse
-import pesterfish
 
 class XML2JSON(webapp.RequestHandler):
     _someString =  """<?xml version="1.0" encoding="UTF-8"?>
@@ -58,13 +55,55 @@ class XML2JSON(webapp.RequestHandler):
             self.response.out.write("Parsing some hard-coded string\n")
 
         try:                                  
-            tree = etree.fromstring(xml)
-            json = pesterfish.to_pesterfish(tree)
+            tree = ET.fromstring(xml)
+            json = self.convertToJson(tree)
         except (TypeError):            
-            json = "pesterfish failed"         
+            self.response.out.write('Failed to convert xml to json\n')
+            return
 
-        self.response.out.write('Json result:\n' + json)
-
+        self.response.out.write(simplejson.dumps(json))
+        
+    def convertToJson(self, tree):
+        """ Convert the given xml tree to JSON.
+            The conversion is done in the following manner:
+            Elements are converted to json objects in case they have further children.
+            Attributes are converted to json object properties.
+            Empty or nil elements are dropped all together
+        
+            @param tree: The xml tree to convert
+        """
+        jsonObj = {}
+        for elem in tree.getiterator():
+            self._convertToJsonHelper(elem, jsonObj)
+            
+        return jsonObj
+            
+    def _convertToJsonHelper(self, elem, jsonObj):        
+        def normalize(name):
+            if name[0] == "{":
+                uri, tag = name[1:].split("}")
+                return tag
+            else:
+                return name
+        
+        if len(elem.attrib) > 0 or len(elem) > 0:
+            # skip nil elements
+            if ("{http://www.w3.org/2001/XMLSchema-instance}nil" in elem.attrib and elem.attrib["{http://www.w3.org/2001/XMLSchema-instance}nil"] == "true"):
+                return
+            
+            currentObj = jsonObj[normalize(elem.tag)] = {}
+            
+            for key,value in elem.attrib.items():
+                currentObj[normalize(key)] = value
+            
+            if not elem.text is None:
+                currentObj["value"] = elem.text
+                
+            for subelem in elem:
+                self._convertToJsonHelper(subelem, currentObj)
+        else:
+            jsonObj[normalize(elem.tag)] = elem.text
+        
 def main():
     application = webapp.WSGIApplication([
         ('/', MainHandler),
