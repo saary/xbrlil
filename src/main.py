@@ -14,100 +14,148 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import logging
+from new import classobj
+
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
-from google.appengine.api import urlfetch                      
+from google.appengine.api import urlfetch
+from google.appengine.ext import db
 
-from django.utils import simplejson     
+from django.utils import simplejson
 from xml.etree import ElementTree as ET
+
+from backend.model import IndexedJsonEntity, IndexedJsonFactory
+import JSONUtils
+
+_searchIndices = { 'identifier': db.StringProperty, 
+                    'EnglishNameOfReportingEntity': db.StringProperty, 
+                    'HebrewNameOfReportingEntity' : db.StringProperty }
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
         self.response.out.write('Hello world!')
 
-class XML2JSON(webapp.RequestHandler):
+class XML2JSONHandler(webapp.RequestHandler):
     _someString =  """<?xml version="1.0" encoding="UTF-8"?>
-<ISBNdb server_time="2005-02-25T23:03:41">
- <BookList total_results="1" page_size="10" page_number="1" shown_results="1">
-  <BookData book_id="somebook" isbn="0123456789">
-   <Title>Interesting Book</Title>
-   <TitleLong>Interesting Book: Read it or else..</TitleLong>
-   <AuthorsText>John Doe</AuthorsText>
-   <PublisherText>Acme Publishing</PublisherText>
-  </BookData>
- </BookList>
-</ISBNdb>"""
+                      <ISBNdb server_time="2005-02-25T23:03:41">
+                        <BookList total_results="1" page_size="10" page_number="1" shown_results="1">
+                          <BookData book_id="somebook" isbn="0123456789">
+                            <Title>Interesting Book</Title>
+                            <TitleLong>Interesting Book: Read it or else..</TitleLong>
+                            <AuthorsText>John Doe</AuthorsText>
+                            <PublisherText>Acme Publishing</PublisherText>
+                          </BookData>
+                        </BookList>
+                      </ISBNdb>"""
+    
+    def getXMLFromURL(self, url):
+        result = urlfetch.fetch(url=url, deadline=10)
+        if (result.status_code == 200):
+            self.response.out.write("Parsing XML from url: " + url + "\n")
+            return result.content
+        else:
+            self.response.out.write("Error fetching XML from URL:" + url + "\n")
+            return None
+
+    def storeTreeAsIndexedJSON(self, tree):
+        indexedJsonFactory = IndexedJsonFactory()
+        indices = _searchIndices
+
+        for key in indices.keys():
+            self.response.out.write('Adding searchable field ' + key + '\n')
+
+        indexedJson = indexedJsonFactory.fromElementTree(tree, indices)
+        if (indexedJson == None):
+            self.response.out.write('Failed to convert xml to indexed JSON\n')
+            return
+
+        indexedJson.put()
+        logging.info("XML2JSONHandler.storeTreeAsIndexedJSON: added to store!")
+
+        return indexedJson
+
     def get(self):
-        self.response.headers['Content-Type'] = "text/plain"
-        source = self.request.get("url")
+        show = False
+        addToDatastore = False
         xml=self._someString
+
+        self.response.headers['Content-Type'] = "text/plain"
+        addToDatastore = (self.request.get("add") == "1")
+        show = (self.request.get("show") == "1")
+        source = self.request.get("url")
         if (len(source) > 0):
             #source = "http://www.w3schools.com/XML/note.xml"
             #source = "http://localhost:8080/xbrl/File2011-01-155475.xbrl"
-            # [Eran] TODO - avoid recursion
-            result = urlfetch.fetch(url=source, deadline=10)
-            if (result.status_code == 200):
-                self.response.out.write("Parsing XML from url: " + source + "\n")
-                xml = result.content
-            else:
-                self.response.out.write("Bad url: " + source + "\nUsing hardcoded string instead\n")
+            xml = self.getXMLFromURL(source)
         else:
-            self.response.out.write("Parsing some hard-coded string\n")
+            xml = self._someString
+            self.response.out.write("Parsing test string:\n")
+            self.response.out.write(xml + "\n")
+            addToDatastore = False
 
         try:                                  
             tree = ET.fromstring(xml)
-            json = self.convertToJson(tree)
         except (TypeError):            
-            self.response.out.write('Failed to convert xml to json\n')
+            self.response.out.write('Failed XML parsing\n')
             return
 
-        self.response.out.write(simplejson.dumps(json))
-        
-    def convertToJson(self, tree):
-        """ Convert the given xml tree to JSON.
-            The conversion is done in the following manner:
-            Elements are converted to json objects in case they have further children.
-            Attributes are converted to json object properties.
-            Empty or nil elements are dropped all together
-        
-            @param tree: The xml tree to convert
-        """
-        jsonObj = {}
-        for elem in tree.getiterator():
-            self._convertToJsonHelper(elem, jsonObj)
-            
-        return jsonObj
-            
-    def _convertToJsonHelper(self, elem, jsonObj):        
-        def normalize(name):
-            if name[0] == "{":
-                uri, tag = name[1:].split("}")
-                return tag
-            else:
-                return name
-        
-        if len(elem.attrib) > 0 or len(elem) > 0:
-            # skip nil elements
-            if ("{http://www.w3.org/2001/XMLSchema-instance}nil" in elem.attrib and elem.attrib["{http://www.w3.org/2001/XMLSchema-instance}nil"] == "true"):
-                return
-            
-            currentObj = jsonObj[normalize(elem.tag)] = {}
-            
-            for key,value in elem.attrib.items():
-                currentObj[normalize(key)] = value
-            
-            if not elem.text is None:
-                currentObj["value"] = elem.text
-                
-            for subelem in elem:
-                self._convertToJsonHelper(subelem, currentObj)
+        if addToDatastore:
+            indexedJSON = self.storeTreeAsIndexedJSON(tree)
+            json = indexedJSON.json
         else:
-            jsonObj[normalize(elem.tag)] = elem.text
+            json = JSONUtils.convertToJson(tree)
         
+        if show:
+            self.response.out.write("JSON output:\n")
+            self.response.out.write(json)
+            self.response.out.write("\n")
+
+        
+class QueryHandler(webapp.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = "text/plain"
+        showAll = False
+        fieldName = self.request.get("fieldName")
+        logging.info("fieldName = " + fieldName)
+        fieldValue = self.request.get("fieldValue")
+        logging.info("fieldValue = " + fieldValue)
+        if (len(fieldName) == 0) or (len(fieldValue) == 0):
+            self.response.out.write('Empty search parameter. Showing all\n')
+            showAll = True
+        if not ( fieldName in _searchIndices):
+            self.response.out.write(fieldName + 'is not a searchable field. Showing all\n')
+            showAll = True
+
+        if (showAll):
+            q = db.GqlQuery("SELECT * FROM IndexedJsonEntity " +
+                            "ORDER BY EnglishNameOfReportingEntity DESC" )
+            self.response.out.write("Query is: SELECT * FROM IndexedJsonEntity \n" +
+                                    "          ORDER BY EnglishNameOfReportingEntity DESC\n" )
+        else:
+            q = db.GqlQuery("SELECT * FROM IndexedJsonEntity " + 
+                            "WHERE " + fieldName + " = :1", fieldValue)
+            self.response.out.write("Query is: SELECT * FROM IndexedJsonEntity \n" + 
+                                    "          WHERE " + fieldName +" = " + fieldValue +"\n" )
+
+        self.response.out.write("\nResults:\n")
+        
+        results = q.fetch(15)
+        ind = 1
+        for p in results:
+            self.response.out.write(repr(ind) + ". ")
+            self.response.out.write(p.json)
+            self.response.out.write("\n")
+            ind = ind + 1
+
+        self.response.out.write("\n")
+        
+
 def main():
     application = webapp.WSGIApplication([
         ('/', MainHandler),
-        ('/test', XML2JSON),
+        ('/test', XML2JSONHandler),
+        ('/q', QueryHandler),
         ],
                                          debug=True)
     util.run_wsgi_app(application)
