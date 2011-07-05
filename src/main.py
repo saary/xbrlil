@@ -38,6 +38,8 @@ class XML2JSON(webapp.RequestHandler):
   </BookData>
  </BookList>
 </ISBNdb>"""
+    _contexts = {}
+    _units = {}
     def get(self):
         self.response.headers['Content-Type'] = "text/plain"
         source = self.request.get("url")
@@ -61,8 +63,10 @@ class XML2JSON(webapp.RequestHandler):
         except (TypeError):            
             self.response.out.write('Failed to convert xml to json\n')
             return
-
-        self.response.out.write(simplejson.dumps(json))
+        
+        jsonstr = simplejson.dumps(json)
+        self.response.out.write(jsonstr)
+        self.response.out.write("\n\nLen: " + str(len(jsonstr)) + "\n")
         
     def convertToJson(self, tree):
         """ Convert the given xml tree to JSON.
@@ -74,15 +78,20 @@ class XML2JSON(webapp.RequestHandler):
             @param tree: The xml tree to convert
         """
         jsonObj = {}
+        self._contexts = {}
+        self._units = {}
         for elem in tree.getiterator():
             self._convertToJsonHelper(elem, jsonObj)
-            
+        
+        jsonObj['contexts'] = self._contexts
+        jsonObj['units'] = self._units
+        
         return jsonObj
             
     def _convertToJsonHelper(self, elem, jsonObj):        
         def normalize(name):
             if name[0] == "{":
-                uri, tag = name[1:].split("}")
+                tag = name[1:].split("}")[1]
                 return tag
             else:
                 return name
@@ -92,13 +101,36 @@ class XML2JSON(webapp.RequestHandler):
             if ("{http://www.w3.org/2001/XMLSchema-instance}nil" in elem.attrib and elem.attrib["{http://www.w3.org/2001/XMLSchema-instance}nil"] == "true"):
                 return
             
-            currentObj = jsonObj[normalize(elem.tag)] = {}
+            tag = normalize(elem.tag)
+            
+            if tag == "context" or tag == "unit":
+                if "id" in elem.attrib:
+                    ref = {}
+                    key = elem.attrib["id"]
+                    collection = self._contexts if tag == "context" else self._units
+                    collection[key] = ref;
+                    for subelem in elem:
+                        subtag = normalize(subelem.tag)
+                        if subtag != "entity":
+                            self._convertToJsonHelper(subelem, ref)
+                return
+            
+            currentObj = jsonObj[tag] = {}
             
             for key,value in elem.attrib.items():
+                #if key == "unitRef":
+                #    currentObj['unit'] = self._units[value]
+                #    continue
+                #elif key == "contextRef":
+                #    currentObj['context'] = self._contexts[value]
+                #    continue
+                
                 currentObj[normalize(key)] = value
             
             if not elem.text is None:
-                currentObj["value"] = elem.text
+                text = elem.text.strip()
+                if text != "":
+                    currentObj["value"] = elem.text
                 
             for subelem in elem:
                 self._convertToJsonHelper(subelem, currentObj)
